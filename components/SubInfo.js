@@ -26,10 +26,18 @@ export const NFTTitile = ({ title, subTitle, titleSize, subTitleSize }) => {
   );
 };
 
-export const ETHPrice = () => {
+export const ETHPrice = ({price}) => {
   return (
-    <View>
-      <Text>SubInfo</Text>
+    <View style={{flexDirection:'row', alignItems:'center'}}>
+      <Image  source={assets.eth}
+              resizeMode="contain"
+              style={{width:20,height:20,marginRight:2}}
+            />
+            <Text style={{
+             fontFamily:FONTS.medium,
+             fontSize:SIZES.font,
+             color:COLORS.primary  
+            }}>{price}</Text>
     </View>
   );
 };
@@ -53,7 +61,7 @@ export const People = () => {
     <View style={{ flexDirection: "row" }}>
       {[assets.person02, assets.person03, assets.person04].map(
         (imgUrl, index) => (
-          <ImageCmp imgUrl={imgUrl} index={index} />
+          <ImageCmp imgUrl={imgUrl} index={index} key={`People-${index}`} />
         )
       )}
     </View>

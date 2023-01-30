@@ -5,7 +5,7 @@ const Details = () => {
   return (
     <SafeAreaView>
     <Text>
-      
+      igtuygiuhyguhgiuhiuh
     </Text>
 </SafeAreaView>
   )
