@@ -5,7 +5,7 @@ import { COLORS, SIZES, SHADOWS, assets } from "../constants";
 
 import { CircleButton, RectButon } from "./Buton";
 
-import { SubInfo, ETHPrice, NFTTitile } from "./SubInfo";
+import { SubInfo, ETHPrice, NFTTitle } from "./SubInfo";
 
 const NFTCard = ({ data }) => {
   const navigation = useNavigation();
@@ -35,7 +35,7 @@ const NFTCard = ({ data }) => {
       <SubInfo />
 
       <View style={{ width: "100%", padding: SIZES.font }}>
-        <NFTTitile
+        <NFTTitle
           title={data.name}
           subTitle={data.creator}
           titleSize={SIZES.large}
@@ -54,7 +54,7 @@ const NFTCard = ({ data }) => {
           <ETHPrice price={data.price} />
           <RectButon
             minWidth={120}
-            fontSize={SIZES.font} 
+            fontSize={SIZES.font}
             handlePress={() => navigation.navigate("Details", { data })}
           />
         </View>

@@ -1,7 +1,7 @@
 import { View, Text, Image } from "react-native";
 import { SIZES, FONTS, COLORS, SHADOWS, assets } from "../constants";
 
-export const NFTTitile = ({ title, subTitle, titleSize, subTitleSize }) => {
+export const NFTTitle = ({ title, subTitle, titleSize, subTitleSize }) => {
   return (
     <View>
       <Text
@@ -26,18 +26,23 @@ export const NFTTitile = ({ title, subTitle, titleSize, subTitleSize }) => {
   );
 };
 
-export const ETHPrice = ({price}) => {
+export const ETHPrice = ({ price }) => {
   return (
-    <View style={{flexDirection:'row', alignItems:'center'}}>
-      <Image  source={assets.eth}
-              resizeMode="contain"
-              style={{width:20,height:20,marginRight:2}}
-            />
-            <Text style={{
-             fontFamily:FONTS.medium,
-             fontSize:SIZES.font,
-             color:COLORS.primary  
-            }}>{price}</Text>
+    <View style={{ flexDirection: "row", alignItems: "center" }}>
+      <Image
+        source={assets.eth}
+        resizeMode="contain"
+        style={{ width: 20, height: 20, marginRight: 2 }}
+      />
+      <Text
+        style={{
+          fontFamily: FONTS.medium,
+          fontSize: SIZES.font,
+          color: COLORS.primary,
+        }}
+      >
+        {price}
+      </Text>
     </View>
   );
 };
