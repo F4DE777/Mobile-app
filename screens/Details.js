@@ -8,7 +8,7 @@ import {
   FlatList,
   StatusBar,
 } from "react-native";
-import { COLORS, SIZES, SHADOWS, FONT, assets } from "../constants";
+import { COLORS, SIZES, SHADOWS, FONT, assets, FONTS } from "../constants";
 import {
   CircleButton,
   RectButon,
@@ -79,6 +79,16 @@ const Details = ({ route, navigation }) => {
             <SubInfo/>
             <View style={{padding:SIZES.font}}>
               <DetailsDesc data={data}/>
+
+              {data.bids.length >  0 &&(
+                <Text style={{
+                  fontSize:SIZES.font,
+                  fontFamily:FONTS.semiBold,
+                  color:COLORS.primary, 
+                }}>
+                  Current Bids
+                </Text>
+              )}
             </View>
           </React.Fragment>
         )}

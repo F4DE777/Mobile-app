@@ -4,6 +4,8 @@ import { ETHPrice, NFTTitle } from "./SubInfo";
 import { COLORS, SIZES, FONTS } from "../constants";
 
 const DetailsDesc = ({ data }) => {
+  const [text, setText] = useState(data.description.slice(0, 100));
+  const [read, setRead] = useState(false);
   return (
     <>
       <View
@@ -23,20 +25,48 @@ const DetailsDesc = ({ data }) => {
         <ETHPrice price={data.price} />
       </View>
 
-      <View style={{marginVertical:SIZES.extraLarge * 1.5}}>
-          <Text style={{
-            fontSize:SIZES.font,
-            fontFamily:FONTS.semiBold,
-            color:COLORS.primary,
-          }}>Description</Text>
-          <View style={{marginTop:SIZES.base}}>
-          <Text style={{
-            fontSize:SIZES.small,
-            fontFamily:FONTS.regular,
-            color:COLORS.secondary,
-            lineHeight:SIZES.large
-          }}>{data.description}</Text>
-          </View>
+      <View style={{ marginVertical: SIZES.extraLarge * 1.5 }}>
+        <Text
+          style={{
+            fontSize: SIZES.font,
+            fontFamily: FONTS.semiBold,
+            color: COLORS.primary,
+          }}
+        >
+          Description
+        </Text>
+        <View style={{ marginTop: SIZES.base }}>
+          <Text
+            style={{
+              fontSize: SIZES.small,
+              fontFamily: FONTS.regular,
+              color: COLORS.secondary,
+              lineHeight: SIZES.large,
+            }}
+          >
+            {text}
+
+            {!read && "..."}
+            <Text
+              style={{
+                fontSize: SIZES.small,
+                fontFamily: FONTS.semiBold,
+                color: COLORS.primary,
+              }}
+              onPress={() => {
+                if (!read) {
+                  setText(data.description);
+                  setRead(true);
+                } else {
+                  setText(data.description.slice(0, 100));
+                  setRead(false);
+                }
+              }}
+            > 
+              {read ? "Show less" : "Read More"}
+            </Text>
+          </Text>
+        </View>
       </View>
     </>
   );
